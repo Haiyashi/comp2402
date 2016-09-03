@@ -1,0 +1,59 @@
+Question 1 Part B
+	SEListDeque Implementation
+		The implementation of the SEListDeque fulfils the criteria
+		of a constant runtime for the 4 functions (Remove/Add,First/last)
+		
+		Add/Remove from Front:O(1)
+		Generally what we are trying to do is make sure you dont ever try and 
+		shift over elements of the array. You accomplish this by checking for
+		space at the front of the array and if it isnt there you will create a 
+		new block[0] using the addBefore funtion, this will simple move pointers
+		which will run virtually constant time. 
+		
+		Add/Remove from Last:O(1)
+		Constant time is even more straight forward with adding or removing from the 
+		end because this is naturally a constant time operation because you never need 
+		to shift elements, the most you will need to do is make a new block when you fill
+		the existing one.
+		 
+
+Question 2 Part B
+	DLListReversible - O(n)
+		The funtion will flip all elements in the DLList: eg [A,B,C] = [C,B,A] in O(n) time
+		This function works by creating 2 temp variables (temp1, temp2) which start at
+		the dummy node, go to the last node and reverse walk through the list flipping
+		all the previous and next pointers until you get to the front and it will end.
+		The time complexity of this would be O(n) in the worst/best case as you need 
+		to walk through the whole list once and only once.
+
+Question 3 Part B
+	MinStack - O(1)
+		This structure will allow in contant time to peek at what the minimum value in a 
+		main stack is. I accomplish the fast runtime by keeping a secondary stack called 
+		minStack which we will push a new item onto whenever we get a new min item. 
+		
+		Pop- O(1)
+		This will pop the item from the main stack and if it is equal to the min item it
+		will pop from the minStack aswell.
+			
+		Push- O(1)
+		Adds item to main stack and if it is smaller or equal to the current min then it
+		adds it to the minStack aswell.
+
+		Min- O(1)
+		Returns null if minStack is empty or peeks if it contains elements
+
+		e.g. If we gave input 'd''c''b''j' the minStack would be 'd''c''b'
+		as you pop the values off the main stack they will pop the same value from minStack.
+
+		As we pus 'd''c''b' on the main stack each is the new smallest item in the stack 
+		so we much update our minStack, but when we add the 'j' to the main stack it isnt 
+		a new smallest value so no change is made to the minStack. As we popoff  values 
+		from the main stack we much also check if it is the same value at the top of the 
+		minStack and pop it off aswell. This time complexity woul be worst case O(1) as
+		we never do anything but peek push and pop which are all constant time and we dont
+		ever loop through our stack. 
+
+Question 4 Part B
+	I know this isnt required but I basically just used a similar implementation to the A2's treque 
+	and implemented a different toString method so that it would print out properly.

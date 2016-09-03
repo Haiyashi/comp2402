@@ -1,0 +1,10 @@
+To determine the index of the parent you must use a similar function to that form a binary heap:
+
+To find the parent you will subtract 1 from the 'u' and divide by 'd' (the number of children):
+"(u-1)/d"
+
+To find the children from the index of the parent:
+"u*d +1 + j"
+
+'u' is the index of the parent, d is the number of children , +1 is to get to the furthest left child, and 'j' is to access the jth child of the 'i' parent. 
+
